@@ -26,10 +26,10 @@ class RouterTest extends \PHPUnit_Framework_TestCase
                     'REQUEST_METHOD' => 'GET',
                 ),
                 array(
-                    '/web/index.php',
-                    '/web',
-                    '/',
-                    'GET',
+                    'script.name' => '/web/index.php',
+                    'script.dir' => '/web',
+                    'path' => '/',
+                    'request.method' => 'GET',
                 ),
             ),
             // Implicit index.php
@@ -40,10 +40,10 @@ class RouterTest extends \PHPUnit_Framework_TestCase
                     'REQUEST_METHOD' => 'GET',
                 ),
                 array(
-                    '/web',
-                    '/web',
-                    '/',
-                    'GET',
+                    'script.name' => '/web',
+                    'script.dir' => '/web',
+                    'path' => '/',
+                    'request.method' => 'GET',
                 ),
             ),
             // Explicit index.php with path
@@ -54,10 +54,10 @@ class RouterTest extends \PHPUnit_Framework_TestCase
                     'REQUEST_METHOD' => 'GET',
                 ),
                 array(
-                    '/web/index.php',
-                    '/web',
-                    '/view/',
-                    'GET',
+                    'script.name' => '/web/index.php',
+                    'script.dir' => '/web',
+                    'path' => '/view/',
+                    'request.method' => 'GET',
                 ),
             ),
             // Apache rewrite with path
@@ -68,24 +68,24 @@ class RouterTest extends \PHPUnit_Framework_TestCase
                     'REQUEST_METHOD' => 'GET',
                 ),
                 array(
-                    '/web',
-                    '/web',
-                    '/view/',
-                    'GET',
+                    'script.name' => '/web',
+                    'script.dir' => '/web',
+                    'path' => '/view/',
+                    'request.method' => 'GET',
                 ),
             ),
             // Rewrite to sub directory
             array(
                 array(
                     'SCRIPT_NAME' => '/web/index.php',
-                    'REQUEST_URI' => '/web/view/',
+                    'REQUEST_URI' => '/view/',
                     'REQUEST_METHOD' => 'GET',
                 ),
                 array(
-                    '/web',
-                    '/web',
-                    '/view/',
-                    'GET',
+                    'script.name' => '/web',
+                    'script.dir' => '/web',
+                    'path' => '/view/',
+                    'request.method' => 'GET',
                 ),
             ),
         );
